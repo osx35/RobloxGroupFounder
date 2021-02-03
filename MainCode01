@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace RobloxCodesWork
+{
+    public partial class Form1 : Form 
+    {
+        public Form1()
+        {
+            InitializeComponent();
+
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            int baseNumber = int.Parse(tbBase.Text);
+            int codeNumber = int.Parse(tbCodeNumber.Text);
+            int[] codes = new int[codeNumber];
+            int count = 0;
+            string link = "https://www.roblox.com/groups/";
+            for (int i =0; i < codes.Length; i++)
+            {
+               codes[i] = baseNumber++;
+            }
+            foreach (int element in codes)
+            {
+                string text= $"{link}{Convert.ToString(codes[count])}";
+                System.IO.File.WriteAllText(@"D:\TextFiles\WriteText.txt", text);
+                count++;
+            }
+            
+ 
+        }
+
+
+
+    }
+}
